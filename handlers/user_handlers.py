@@ -64,11 +64,11 @@ async def process_continue_command(message: Message):
 # если они есть или сообщение о том, что закладок нет
 @router.message(Command(commands='bookmarks'))
 async def process_bookmarks_command(message: Message):
-    if users_db[message.from_user.id]["bookmarks"]:
+    if users_db[message.from_user.id]['bookmarks']:
         await message.answer(
             text=LEXICON[message.text],
             reply_markup=create_bookmarks_keyboard(
-                *users_db[message.from_user.id]["bookmarks"]))
+                *users_db[message.from_user.id]['bookmarks']))
     else:
         await message.answer(text=LEXICON['no_bookmarks'])
 
